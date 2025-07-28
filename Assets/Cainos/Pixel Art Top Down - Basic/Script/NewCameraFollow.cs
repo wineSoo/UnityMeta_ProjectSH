@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class NewCameraFollow : MonoBehaviour
 {
-    public Transform target;      // 따라갈 대상 (플레이어)
-    public float smoothSpeed = 5f; // 부드러운 이동 속도
-    public Vector2 minBounds;     // 카메라가 도달할 수 있는 최소 위치
-    public Vector2 maxBounds;     // 카메라가 도달할 수 있는 최대 위치
+    public Transform target;      
+    public float smoothSpeed = 5f; 
+    public Vector2 minBounds;     
+    public Vector2 maxBounds;     
 
-    private Vector3 offset;       // 카메라와 플레이어 간의 초기 거리
+    private Vector3 offset;      
 
     void Start()
     {
