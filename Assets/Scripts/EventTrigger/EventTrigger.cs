@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriggerZone : MonoBehaviour
 {
@@ -21,8 +22,7 @@ public class TriggerZone : MonoBehaviour
     {
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("E 키 입력 감지됨. 이벤트 실행!");
-            // 나중에 여기에 미니게임 전환 코드 넣기
+            SceneManager.LoadScene("FlappyBirdScene");
         }
     }
 

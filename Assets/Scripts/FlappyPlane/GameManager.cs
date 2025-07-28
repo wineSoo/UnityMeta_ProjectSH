@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static GameManager gameManager;
+    public GameObject gameOverText;
+    public GameObject ReturnMain;
+
+    
 
     public static GameManager Instance
     {
@@ -28,13 +32,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        ReturnMain.SetActive(false);
         uiManager.UpdateScore(0);
     }
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
-        uiManager.SetRestart();
+        
+        gameOverText.SetActive(true);
+        ReturnMain.SetActive(true); 
     }
 
     public void RestartGame()
@@ -47,6 +53,13 @@ public class GameManager : MonoBehaviour
         currentScore += score;
         uiManager.UpdateScore(currentScore);
         Debug.Log("Score: " + currentScore);
+    }
+    public void SaveScoreAndReturnToMain()
+    {
+        PlayerPrefs.SetInt("LastMiniGameScore", currentScore);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("SampleScene"); 
     }
 
 }
